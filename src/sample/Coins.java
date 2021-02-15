@@ -1,8 +1,7 @@
 package sample;
 
-import java.lang.reflect.Array;
-
 public class Coins {
+
     private Coin[] coins;
     private int[] counters;
     public int limit; //one limit for all counters
