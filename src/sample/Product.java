@@ -1,11 +1,18 @@
 package sample;
 
-public class Product {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
+public class Product{
 
     private String name;
     private double price;
     private int id;
-
+    
     public Product(int id, String name, double price){
         this.id = id;
         this.name = name;
