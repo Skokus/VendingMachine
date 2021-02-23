@@ -1,5 +1,7 @@
 package sample;
 
+import java.util.ArrayList;
+
 public class ProductDispenser {
     private Product product;
     private int count;
@@ -9,6 +11,13 @@ public class ProductDispenser {
     public ProductDispenser(Product product, int count, int limit, String imageURL){
         this.product = product;
         this.count = count;
+        this.limit = limit;
+        this.imageURL = imageURL;
+    }
+
+    public ProductDispenser(Product product, int limit, String imageURL){
+        this.product = product;
+        this.count = limit;
         this.limit = limit;
         this.imageURL = imageURL;
     }
