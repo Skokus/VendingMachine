@@ -4,17 +4,20 @@ public class ProductDispenser {
     private Product product;
     private int count;
     private int limit;
+    private String imageURL;
 
-    public ProductDispenser(Product product, int count, int limit){
+    public ProductDispenser(Product product, int count, int limit, String imageURL){
         this.product = product;
         this.count = count;
         this.limit = limit;
+        this.imageURL = imageURL;
     }
 
     public ProductDispenser(Product product, int limit){
         this.product = product;
         this.count = limit;
         this.limit = limit;
+        this.imageURL = "photos/PrincePolo.png";
     }
 
     public Product getProduct(){
@@ -29,6 +32,9 @@ public class ProductDispenser {
         return this.count;
     }
 
+    public String getImageURL(){
+        return this.imageURL;
+    }
     public void putProduct(){
         if(count + 1 <= limit){
             count++;

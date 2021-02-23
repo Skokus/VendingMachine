@@ -1,6 +1,7 @@
 package sample;
 
-import javafx.fxml.FXMLLoader;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -8,51 +9,42 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 
-public class ProductDispenserNode extends Parent {
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    public Group group;
-    public ProductDispenser productDispenser;
-    public ImageView image;
-    public TextField id;
-    public TextField price;
-    public Button button;
+public class ProductDispenserNode implements Initializable {
 
-    public ProductDispenserNode(ProductDispenser productDispenser, String imageurl) throws Exception{
-        group = new Group();
-        image = new ImageView();
-        image.setFitWidth(100);
-        image.setFitHeight(100);
-        image.setImage(new Image(getClass().getResource(imageurl).toExternalForm()));
-        group.getChildren().add(image);
-        id = new TextField();
-        TextFormat(id, Integer.toString(productDispenser.getProduct().getId()), 0, 100);
-        group.getChildren().add(id);
-        price = new TextField();
-        TextFormat(price, String.format("%.2f", productDispenser.getProduct().getPrice()), 50, 100);
-        group.getChildren().add(price);
-        button = new Button("-");
-        button.setLayoutY(130);
-        group.getChildren().add(button);
-        button.setOnAction(e -> productDispenser.removeProduct());
+    @FXML public Pane group;
+    @FXML public ImageView image;
+    @FXML public TextField id;
+    @FXML public TextField price;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources){
+        TextFormat(this.id);
+        TextFormat(this.price);
     }
 
-    public Group getGroup(){
+    public Pane getGroup(){
         return group;
     }
 
-    private void TextFormat(TextField text, String input, int x, int y){
-        text.setText(input);
+    private void TextFormat(TextField text){
         text.setEditable(false);
-        text.setMaxWidth(50);
-        text.setMaxHeight(25);
-        text.setLayoutY(y);
-        text.setLayoutX(x);
         text.setFocusTraversable(false);
         text.setMouseTransparent(true);
+    }
+
+    public void setId(String id){
+        this.id.setText(id);
+    }
+
+    public void setPrice(String price){
+        this.price.setText(price);
+    }
+
+    public void setImage(Image image){
+        this.image.setImage(image);
     }
 }
