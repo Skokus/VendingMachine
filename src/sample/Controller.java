@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class Controller {
     
     @FXML public GridPane pdisconteiner;
+    @FXML public Pane pane;
 
     public void initialize() throws Exception {
         int count = 0;
@@ -36,5 +37,11 @@ public class Controller {
             pdisconteiner.add(pane, count, j);
             count++;
         }
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("inputmachine.fxml"));
+        Pane inputmachine = loader.load();
+        InputMachineController controller = loader.getController();
+        inputmachine.setLayoutX(550);
+        inputmachine.setLayoutY(100);
+        pane.getChildren().add(inputmachine);
     }
 }
