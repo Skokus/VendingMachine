@@ -22,17 +22,17 @@ public class Controller {
     public void initialize() throws Exception {
         int count = 0;
         int j = 0;
-        for(int i = 0; i < Data.productDispensers.size(); i++){
+        for(int i = 0; i < ProductDispenser.productDispensers.size(); i++){
             if(count == 5){
                 count = 0;
                 j++;
             }
             FXMLLoader loader = new FXMLLoader(getClass().getResource("productdispenser.fxml"));
             Pane pane = loader.load();
-            ProductDispenser productDispenser = Data.productDispensers.get(i);
+            ProductDispenser productDispenser = ProductDispenser.productDispensers.get(i);
             ProductDispenserNode controller = loader.getController();
             controller.setId(Integer.toString(productDispenser.getProduct().getId()));
-            controller.setPrice(Double.toString(productDispenser.getProduct().getPrice()));
+            controller.setPrice(productDispenser.getProduct().priceToString());
             controller.setImage(new Image(getClass().getResource(productDispenser.getImageURL()).toExternalForm()));
             pdisconteiner.add(pane, count, j);
             count++;

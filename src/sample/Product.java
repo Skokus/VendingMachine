@@ -35,6 +35,7 @@ public class Product implements Comparable<Product>{
         return this.id + ". " + this.name + " " + String.format("%.2f", this.price);
     }
 
+    public String priceToString(){return String.format("%.2f", this.price);}
     public int compareTo(Product p){
         if(p == null){
             throw new NullPointerException("Object is null!");
